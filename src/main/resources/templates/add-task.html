@@ -10,13 +10,18 @@
             <h2>Ajouter une tâche</h2>
             <hr/>
             <form th:action="@{/saveTask}" th:object="${task}" method="POST">
-                <input type="text" th:field="*{day}" placeholder="Pour quel jour ?" required="required" class="form-control col-4 mb-4"/>
+                <input type="text" th:field="*{day}" placeholder="Pour quel jour ?"  class="form-control col-4 mb-4"/>
 
-                <input type="text" th:field="*{task}" placeholder="Tâche à réaliser" required="required" class="form-control col-4 mb-4"/>
+                <input type="text" th:field="*{taskName}" placeholder="Tâche à réaliser"  class="form-control col-4 mb-4"/>
 
-                <input type="text" th:field="*{status}" placeholder="Statut actuel de la tâche" value="A faire" class="form-control col-4 mb-4"/>
+                <input type="text" th:field="*{status}" placeholder="Statut actuel de la tâche" value="En cours" class="form-control col-4 mb-4"/>
+
                 <button class="btn btn-primary" type="submit">Sauvegarder</button>
+                <input type="hidden" th:field="*{id}"/>
+
             </form>
+
+            <a th:href="@{/list}">Annuler</a>
         </div>
     </body>
 </html>

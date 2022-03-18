@@ -16,13 +16,18 @@
                         <th>Jour</th>
                         <th>Tâches</th>
                         <th>Statut</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="task: ${tasks}">
                         <td th:text="${task.day}"></td>
-                        <td th:text="${task.task}"></td>
+                        <td th:text="${task.taskName}"></td>
                         <td th:text="${task.status}"></td>
+                        <td>
+                            <a th:href="@{/showUpdateForm(taskId=${task.id})}" class="btn btn-info">Update</a>
+                            <a th:href="@{/deleteTask(taskId=${task.id})}" class="btn btn-danger ml-2">Delete</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
